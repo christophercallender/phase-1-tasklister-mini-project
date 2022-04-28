@@ -9,12 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleTask(todo) {
    let p = document.createElement('p');
-   let btn = document.createElement('button');
-   btn.addEventListener('click', handleDelete);
+   let edtbtn = document.createElement('button');
+   let dltbtn = document.createElement('button');
+   let space = document.createTextNode(' ');
+
+   edtbtn.classList.add('button');
+   dltbtn.classList.add('button');
+
    p.textContent = `${todo} `;
-   btn.textContent = 'Completed';
-   p.appendChild(btn);
+   edtbtn.textContent = 'Edit';
+   dltbtn.textContent = 'Completed';
+
+   edtbtn.addEventListener('click', handleEdit);
+   dltbtn.addEventListener('click', handleDelete);
+
+   p.appendChild(edtbtn);
+   p.appendChild(space);
+   p.appendChild(dltbtn);
+
    document.querySelector('#list').appendChild(p);
+}
+
+function handleEdit(e) {
+   textUpdate = prompt('Edit Task', e.target.parentNode.firstChild.textContent);
+   e.target.parentNode.firstChild.textContent = `${textUpdate} `;
 }
 
 function handleDelete(e) {
