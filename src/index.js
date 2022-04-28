@@ -32,7 +32,9 @@ function handleTask(todo) {
 
 function handleEdit(e) {
    textUpdate = prompt('Edit Task', e.target.parentNode.firstChild.textContent);
-   e.target.parentNode.firstChild.textContent = `${textUpdate} `;
+   textUpdate === null
+      ? {}
+      : (e.target.parentNode.firstChild.textContent = `${textUpdate} `);
 }
 
 function handleDelete(e) {
