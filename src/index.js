@@ -27,7 +27,7 @@ function handleTask(todo) {
    clock.innerHTML = ` Time: <input type="time"> `;
    priority.innerHTML = `
    <option>Priority</option>
-   <option>Hi</option>
+   <option>High</option>
    <option>Medium</option>
    <option>Low</option>
    `;
