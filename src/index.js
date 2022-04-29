@@ -9,20 +9,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleTask(todo) {
    let p = document.createElement('p');
+   let calendar = document.createElement('tag');
+   let clock = document.createElement('tag');
+   let priority = document.createElement('select');
    let edtbtn = document.createElement('button');
    let dltbtn = document.createElement('button');
    let space = document.createTextNode(' ');
 
+   calendar.classList.add('button');
+   clock.classList.add('button');
+   priority.classList.add('button');
    edtbtn.classList.add('button');
    dltbtn.classList.add('button');
 
    p.textContent = `${todo} `;
+   calendar.innerHTML = ` Date: <input type="date"> `;
+   clock.innerHTML = ` Time: <input type="time"> `;
+   priority.innerHTML = `
+   <option>Priority</option>
+   <option>Hi</option>
+   <option>Medium</option>
+   <option>Low</option>
+   `;
    edtbtn.textContent = 'Edit';
    dltbtn.textContent = 'Completed';
 
    edtbtn.addEventListener('click', handleEdit);
    dltbtn.addEventListener('click', handleDelete);
 
+   p.appendChild(calendar);
+   p.appendChild(space);
+   p.appendChild(clock);
+   p.appendChild(space);
+   p.appendChild(priority);
+   p.appendChild(space);
    p.appendChild(edtbtn);
    p.appendChild(space);
    p.appendChild(dltbtn);
